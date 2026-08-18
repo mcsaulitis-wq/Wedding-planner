@@ -132,7 +132,6 @@
       font-size: 2.8cqw;
       line-height: 1.2;
       letter-spacing: -0.01em;
-      text-transform: lowercase;
       margin: 0;
     }
 
@@ -176,21 +175,21 @@
     }
   </style>
 
-  <div id="root" data-composition-id="03-feature-mapping" data-width="1080" data-height="1920" data-duration="3">
+  <div id="root" data-composition-id="03-feature-mapping" data-width="1080" data-height="1920" data-duration="3.5">
 
-    <div class="fm3-bg clip" data-start="0" data-duration="3" data-track-index="0"></div>
+    <div class="fm3-bg clip" id="fm3-bg" data-start="0" data-duration="3.5" data-track-index="0"></div>
 
-    <div class="fm3-panel clip" data-start="0" data-duration="3" data-track-index="1"></div>
+    <div class="fm3-panel clip" id="fm3-panel" data-start="0" data-duration="3.5" data-track-index="1"></div>
 
-    <div class="fm3-content clip" data-start="0" data-duration="3" data-track-index="2">
+    <div class="fm3-content clip" id="fm3-content" data-start="0" data-duration="3.5" data-track-index="2">
 
       <div class="fm3-catalogue">No. 02</div>
 
       <div class="fm3-kicker-row">
         <div class="fm3-kicker-ticker">
-          <div class="fm3-kicker-stack" id="fm3-kickerStack">
+          <div class="fm3-kicker-stack" id="fm3-kickerStack" data-layout-allow-overflow>
             <div class="fm3-kicker-item">feature 01</div>
-            <div class="fm3-kicker-item">feature 02</div>
+            <div class="fm3-kicker-item" data-layout-allow-occlusion>feature 02</div>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ music: none
 - voiceover:
 - duration: 4s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/01-title.html
 - type: product_intro
 - persuasion: Authority by association — a confident brand-first open
@@ -43,7 +43,7 @@ keyMessage: SkyHarvest — precision farming from above.
 - voiceover:
 - duration: 3s
 - transition_in: zoom-through
-- status: outline
+- status: animated
 - src: compositions/frames/02-feature-flight.html
 - type: feature_showcase
 - persuasion: Feature-to-benefit translation
@@ -66,7 +66,7 @@ keyMessage: Autonomous Flight Paths.
 - voiceover:
 - duration: 3s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - src: compositions/frames/03-feature-mapping.html
 - type: feature_showcase
 - persuasion: Value stacking
@@ -89,7 +89,7 @@ keyMessage: Real-Time Crop Health Mapping.
 - voiceover:
 - duration: 5s
 - transition_in: push-slide LEFT
-- status: outline
+- status: animated
 - src: compositions/frames/04-feature-spray-outro.html
 - type: branding
 - persuasion: Rule of three — the three-item list resolves and hands off to the brand

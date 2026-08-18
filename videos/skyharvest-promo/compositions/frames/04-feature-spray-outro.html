@@ -159,7 +159,6 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
   <script>
     (function () {
       window.__timelines = window.__timelines || {};
@@ -202,12 +201,15 @@
       var STEP_DUR = 0.5;
 
       // card A: dimmed slot (18cqh) -> further-dimmed top slot (2cqh), cream-muted -> cream-hint
-      tl.to("#f4-card-a", { top: "2cqh", duration: STEP_DUR, ease: "back.out(1.5)" }, STEP_START);
-      tl.to("#f4-card-a-text", { color: "#505048", duration: STEP_DUR, ease: "power2.out" }, STEP_START);
+      // (transform-only: animate y by the -16cqh slot delta instead of layout-triggering top)
+      tl.to("#f4-card-a", { y: "-16cqh", duration: STEP_DUR, ease: "back.out(1.5)" }, STEP_START);
+      // frame.md's cream-hint (#505048) falls under WCAG AA 3:1 on ink-black at this size;
+      // use a lightened variant that keeps the same dimmed-tier read and clears contrast.
+      tl.to("#f4-card-a-text", { color: "rgb(105,105,98)", duration: STEP_DUR, ease: "power2.out" }, STEP_START);
       tl.to("#f4-card-a-bullet", { opacity: 0.3, duration: STEP_DUR, ease: "power2.out" }, STEP_START);
 
       // card B: focal slot (34cqh) -> dimmed slot (18cqh), cream -> cream-muted
-      tl.to("#f4-card-b", { top: "18cqh", duration: STEP_DUR, ease: "back.out(1.5)" }, STEP_START);
+      tl.to("#f4-card-b", { y: "-16cqh", duration: STEP_DUR, ease: "back.out(1.5)" }, STEP_START);
       tl.to("#f4-card-b-text", { color: "#888880", duration: STEP_DUR, ease: "power2.out" }, STEP_START);
       tl.to("#f4-card-b-bullet", { opacity: 0.55, duration: STEP_DUR, ease: "power2.out" }, STEP_START);
 
