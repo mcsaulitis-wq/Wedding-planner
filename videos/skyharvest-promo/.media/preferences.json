@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "shorts",
+      "confirmed_in": [
+        "skyharvest-promo"
+      ],
+      "updated_at": "2026-08-18T22:17:02.998Z"
+    },
+    "aspect": {
+      "value": "1080x1920",
+      "confirmed_in": [
+        "skyharvest-promo"
+      ],
+      "updated_at": "2026-08-18T22:17:03.043Z"
+    },
+    "language": {
+      "value": "en",
+      "confirmed_in": [
+        "skyharvest-promo"
+      ],
+      "updated_at": "2026-08-18T22:17:03.093Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "skyharvest-promo"
+      ],
+      "updated_at": "2026-08-18T22:17:03.141Z"
+    },
+    "storyboard": {
+      "value": "no",
+      "confirmed_in": [
+        "skyharvest-promo"
+      ],
+      "updated_at": "2026-08-18T22:17:03.188Z"
+    },
+    "style_preset.product-launch-video": {
+      "value": "broadside",
+      "confirmed_in": [
+        "skyharvest-promo"
+      ],
+      "updated_at": "2026-08-18T22:20:30.634Z"
+    }
+  },
+  "sightings": {}
+}

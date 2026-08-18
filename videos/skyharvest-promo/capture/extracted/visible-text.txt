@@ -1,0 +1,18 @@
+SkyHarvest — precision farming from above.
+
+A 15-second vertical (9:16) launch video for SkyHarvest, a placeholder
+agricultural-drone brand. Dark, tech-forward, precision-agriculture aesthetic.
+No real product, URL, or brand assets supplied — user explicitly chose a
+generic/fictional stand-in to demo the pipeline.
+
+Message: SkyHarvest brings precision farming from above.
+
+Features:
+- Autonomous Flight Paths
+- Real-Time Crop Health Mapping
+- Precision Spot Spraying
+
+Requested treatment: animated title entrance with a subtle glow, then a
+feature-list card transition through the three features above. No narration.
+Silent build (no background music available in this environment — see
+BRIEF.md Notes).
