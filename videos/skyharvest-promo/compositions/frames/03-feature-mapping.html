@@ -1,0 +1,349 @@
+<template>
+  <style>
+    @font-face{font-family:"Barlow";font-weight:400;font-style:normal;font-display:block;src:url("assets/fonts/barlow-400.woff2") format("woff2");}
+    @font-face{font-family:"Barlow";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/barlow-600.woff2") format("woff2");}
+    @font-face{font-family:"Barlow";font-weight:700;font-style:normal;font-display:block;src:url("assets/fonts/barlow-700.woff2") format("woff2");}
+    @font-face{font-family:"Barlow";font-weight:800;font-style:normal;font-display:block;src:url("assets/fonts/barlow-800.woff2") format("woff2");}
+    @font-face{font-family:"Barlow";font-weight:900;font-style:normal;font-display:block;src:url("assets/fonts/barlow-900.woff2") format("woff2");}
+    @font-face{font-family:"IBM Plex Mono";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/ibm-plex-mono-500.woff2") format("woff2");}
+
+    #root {
+      position: absolute;
+      inset: 0;
+      container-type: size;
+      overflow: hidden;
+      font-family: "Barlow", sans-serif;
+      color: #F0ECE5;
+    }
+
+    .fm3-bg {
+      position: absolute;
+      inset: 0;
+      background: #111111;
+    }
+
+    .fm3-panel {
+      position: absolute;
+      top: 0;
+      left: 30cqw;
+      width: 70cqw;
+      height: 58cqh;
+      background: #1A1A18;
+      border-left: 1px solid #282826;
+    }
+
+    .fm3-content {
+      position: absolute;
+      inset: 0;
+    }
+
+    /* — left chrome column — */
+    .fm3-catalogue {
+      position: absolute;
+      top: 5.5cqh;
+      left: 5.5cqw;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 0.72cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #F0ECE5;
+      opacity: 0.4;
+    }
+
+    .fm3-kicker-row {
+      position: absolute;
+      top: 16.4cqh;
+      left: 5.5cqw;
+      display: flex;
+      align-items: center;
+      gap: 0.8cqw;
+    }
+
+    .fm3-kicker-ticker {
+      height: 1.9cqh;
+      overflow: hidden;
+    }
+
+    .fm3-kicker-stack {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fm3-kicker-item {
+      height: 1.9cqh;
+      display: flex;
+      align-items: center;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 0.72cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #E85D26;
+      white-space: nowrap;
+    }
+
+    .fm3-rule-stub {
+      position: absolute;
+      top: 19.3cqh;
+      left: 5.5cqw;
+      width: 36px;
+      height: 2px;
+      background: #E85D26;
+    }
+
+    /* — cards — */
+    .fm3-card {
+      position: absolute;
+      left: 35.5cqw;
+      width: 59cqw;
+    }
+
+    .fm3-card-top-rule {
+      width: 100%;
+      height: 1px;
+      background: #282826;
+    }
+
+    .fm3-card-body {
+      display: flex;
+      align-items: center;
+      gap: 2cqw;
+      padding: 2.6cqw 2.8cqw;
+    }
+
+    .fm3-marker {
+      flex: none;
+      width: 1.6cqw;
+      height: 3cqw;
+      overflow: visible;
+      transform-origin: 50% 50%;
+    }
+
+    .fm3-marker line {
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+    }
+
+    .fm3-headline {
+      font-family: "Barlow", sans-serif;
+      font-weight: 600;
+      font-size: 2.8cqw;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      text-transform: lowercase;
+      margin: 0;
+    }
+
+    #fm3-card1 {
+      top: 18cqh;
+    }
+    #fm3-card1 .fm3-headline {
+      color: #F0ECE5;
+    }
+    #fm3-card1 .fm3-marker line {
+      stroke: #E85D26;
+    }
+
+    #fm3-card2 {
+      top: 34cqh;
+      opacity: 0;
+    }
+    #fm3-card2 .fm3-card-top-rule {
+      background: #E85D26;
+    }
+    #fm3-card2 .fm3-headline {
+      color: #F0ECE5;
+      clip-path: inset(0 100% 0 0);
+    }
+    #fm3-card2 .fm3-marker line {
+      stroke: #E85D26;
+    }
+    #fm3-card2 .fm3-marker {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    .fm3-focal-rule {
+      position: absolute;
+      left: 2.8cqw;
+      bottom: -1.6cqh;
+      width: 36px;
+      height: 2px;
+      background: #E85D26;
+      transform-origin: 0% 50%;
+    }
+  </style>
+
+  <div id="root" data-composition-id="03-feature-mapping" data-width="1080" data-height="1920" data-duration="3">
+
+    <div class="fm3-bg clip" data-start="0" data-duration="3" data-track-index="0"></div>
+
+    <div class="fm3-panel clip" data-start="0" data-duration="3" data-track-index="1"></div>
+
+    <div class="fm3-content clip" data-start="0" data-duration="3" data-track-index="2">
+
+      <div class="fm3-catalogue">No. 02</div>
+
+      <div class="fm3-kicker-row">
+        <div class="fm3-kicker-ticker">
+          <div class="fm3-kicker-stack" id="fm3-kickerStack">
+            <div class="fm3-kicker-item">feature 01</div>
+            <div class="fm3-kicker-item">feature 02</div>
+          </div>
+        </div>
+      </div>
+      <div class="fm3-rule-stub"></div>
+
+      <div class="fm3-card" id="fm3-card1">
+        <div class="fm3-card-top-rule"></div>
+        <div class="fm3-card-body">
+          <svg class="fm3-marker" viewBox="0 0 20 40"><line x1="16" y1="4" x2="4" y2="36" /></svg>
+          <p class="fm3-headline">Autonomous Flight Paths</p>
+        </div>
+      </div>
+
+      <div class="fm3-card" id="fm3-card2">
+        <div class="fm3-card-top-rule"></div>
+        <div class="fm3-card-body">
+          <svg class="fm3-marker" viewBox="0 0 20 40"><line id="fm3-marker2-line" x1="16" y1="4" x2="4" y2="36" /></svg>
+          <p class="fm3-headline">Real-Time Crop Health Mapping</p>
+        </div>
+        <div class="fm3-focal-rule" id="fm3-focalRule"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    var fm3tl = gsap.timeline({ paused: true });
+
+    // — kicker ticker: single spring step "feature 01" -> "feature 02" —
+    (function () {
+      var stackEl = document.getElementById("fm3-kickerStack");
+      var spring = { p: 0 };
+      function apply() {
+        // step height matches .fm3-kicker-item CSS height (1.9cqh of the 1920px-tall root = ~36.5px)
+        var stepPx = 0.019 * 1920;
+        stackEl.style.transform = "translateY(" + -spring.p * stepPx + "px)";
+      }
+      apply();
+      fm3tl.to(spring, { p: 1, duration: 0.3, ease: "back.out(1.5)", onUpdate: apply }, 0.06);
+    })();
+
+    // — measure card2's marker draw-line —
+    var fm3MarkerLine = document.getElementById("fm3-marker2-line");
+    var fm3MarkerLen = fm3MarkerLine.getTotalLength();
+    fm3MarkerLine.style.strokeDasharray = fm3MarkerLen;
+    fm3MarkerLine.style.strokeDashoffset = fm3MarkerLen;
+
+    // — Scene 2 (0.4s–1.6s): stack steps up, card 2 springs into the focal slot —
+
+    // card 1 — small step-up nudge + dim to cream-muted
+    fm3tl.fromTo("#fm3-card1", { y: 14 }, { y: 0, duration: 0.38, ease: "back.out(1.4)" }, 0.42);
+    fm3tl.fromTo(
+      "#fm3-card1 .fm3-headline",
+      { color: "#F0ECE5" },
+      { color: "#888880", duration: 0.4, ease: "power1.out" },
+      0.42,
+    );
+    fm3tl.fromTo(
+      "#fm3-card1 .fm3-marker line",
+      { stroke: "#E85D26" },
+      { stroke: "#505048", duration: 0.4, ease: "power1.out" },
+      0.42,
+    );
+    fm3tl.fromTo(
+      "#fm3-card1 .fm3-card-top-rule",
+      { backgroundColor: "#E85D26" },
+      { backgroundColor: "#282826", duration: 0.4, ease: "power1.out" },
+      0.42,
+    );
+
+    // card 2 — arrives into the now-open focal slot
+    fm3tl.fromTo(
+      "#fm3-card2",
+      { y: 34, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
+      0.46,
+    );
+    // marker-pop
+    fm3tl.fromTo(
+      "#fm3-card2 .fm3-marker",
+      { scale: 0, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.38, ease: "power3.out" },
+      0.58,
+    );
+    // fire-orange bullet draw-in
+    fm3tl.fromTo(
+      fm3MarkerLine,
+      { strokeDashoffset: fm3MarkerLen },
+      { strokeDashoffset: 0, duration: 0.34, ease: "power2.out" },
+      0.7,
+    );
+    // pill mask-wipe reveal on the headline
+    fm3tl.fromTo(
+      "#fm3-card2 .fm3-headline",
+      { clipPath: "inset(0% 100% 0% 0%)" },
+      { clipPath: "inset(0% 0% 0% 0%)", duration: 0.42, ease: "power2.out" },
+      0.92,
+    );
+    // fire-orange rule bar draws in under the focal card
+    fm3tl.fromTo(
+      "#fm3-focalRule",
+      { scaleX: 0 },
+      { scaleX: 1, duration: 0.28, ease: "power2.out" },
+      1.28,
+    );
+
+    // — Scene 3 (1.6s–3.0s): held read, gentle parallax float on both cards —
+    // amplitude ramps to zero over the closing ~25% so the stack lands EXACTLY
+    // static at the cut (handoff_out requires both cards static at cut).
+    (function () {
+      var card1 = document.getElementById("fm3-card1");
+      var card2 = document.getElementById("fm3-card2");
+      var phase1 = { p: 0 };
+      var phase2 = { p: 0 };
+      var AMP = 2 / Math.SQRT2; // two concurrent floating elements -> amplitude / sqrt(N)
+      var CYCLES = 0.55;
+      var FADE_FRAC = 0.25;
+
+      function envelope(p) {
+        var t = p / (Math.PI * 2 * CYCLES); // 0 -> 1 across the idle window
+        return t < 1 - FADE_FRAC ? 1 : Math.max(0, (1 - t) / FADE_FRAC);
+      }
+
+      fm3tl.to(
+        phase1,
+        {
+          p: Math.PI * 2 * CYCLES,
+          duration: 1.3,
+          ease: "none",
+          onUpdate: function () {
+            var env = envelope(phase1.p);
+            card1.style.transform = "translateY(" + Math.sin(phase1.p) * AMP * env + "px)";
+          },
+        },
+        1.7,
+      );
+      fm3tl.to(
+        phase2,
+        {
+          p: Math.PI * 2 * CYCLES,
+          duration: 1.3,
+          ease: "none",
+          onUpdate: function () {
+            var env = envelope(phase2.p);
+            card2.style.transform =
+              "translateY(" + Math.sin(phase2.p + Math.PI / 2) * AMP * env + "px)";
+          },
+        },
+        1.7,
+      );
+    })();
+
+    window.__timelines["03-feature-mapping"] = fm3tl;
+  </script>
+</template>
