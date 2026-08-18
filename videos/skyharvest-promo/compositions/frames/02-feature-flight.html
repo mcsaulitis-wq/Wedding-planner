@@ -1,0 +1,144 @@
+<template>
+  <style>
+    @font-face{font-family:"Barlow";font-weight:400;font-style:normal;font-display:block;src:url("assets/fonts/barlow-400.woff2") format("woff2");}
+    @font-face{font-family:"Barlow";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/barlow-600.woff2") format("woff2");}
+    @font-face{font-family:"Barlow";font-weight:700;font-style:normal;font-display:block;src:url("assets/fonts/barlow-700.woff2") format("woff2");}
+    @font-face{font-family:"Barlow";font-weight:800;font-style:normal;font-display:block;src:url("assets/fonts/barlow-800.woff2") format("woff2");}
+    @font-face{font-family:"Barlow";font-weight:900;font-style:normal;font-display:block;src:url("assets/fonts/barlow-900.woff2") format("woff2");}
+    @font-face{font-family:"IBM Plex Mono";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/ibm-plex-mono-500.woff2") format("woff2");}
+
+    #root {
+      position: absolute;
+      inset: 0;
+      container-type: size;
+      container-name: frame;
+      overflow: hidden;
+      background: transparent;
+      font-family: "Barlow", sans-serif;
+      color: #f0ece5;
+    }
+
+    ._02-feature-flight-ground {
+      position: absolute;
+      inset: 0;
+      background: #111111;
+    }
+
+    ._02-feature-flight-kicker {
+      position: absolute;
+      left: 5.5cqw;
+      top: 6.5cqh;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 1.3cqw;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #e85d26;
+      line-height: 1;
+    }
+
+    ._02-feature-flight-card {
+      position: absolute;
+      left: 30cqw;
+      top: 18cqh;
+      width: 64.5cqw;
+      display: flex;
+      flex-direction: column;
+      gap: 2.6cqh;
+    }
+
+    ._02-feature-flight-row {
+      display: flex;
+      align-items: center;
+      gap: 1.4cqw;
+    }
+
+    ._02-feature-flight-bullet {
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 500;
+      font-size: 3.4cqw;
+      line-height: 1;
+      color: #e85d26;
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+
+    ._02-feature-flight-text {
+      font-family: "Barlow", sans-serif;
+      font-weight: 600;
+      font-size: 2.6cqw;
+      line-height: 1.35;
+      color: #f0ece5;
+      white-space: nowrap;
+    }
+
+    ._02-feature-flight-rule {
+      width: 36px;
+      height: 2px;
+      background: #e85d26;
+      transform-origin: 0% 50%;
+    }
+  </style>
+
+  <div id="root" data-composition-id="02-feature-flight" data-width="1080" data-height="1920" data-duration="3">
+    <div class="clip _02-feature-flight-ground" id="_02-feature-flight-ground" data-start="0" data-duration="3" data-track-index="0"></div>
+
+    <div class="clip _02-feature-flight-kicker" id="_02-feature-flight-kicker" data-start="0" data-duration="3" data-track-index="1">feature 01</div>
+
+    <div class="clip _02-feature-flight-card" id="_02-feature-flight-card" data-start="0" data-duration="3" data-track-index="2">
+      <div class="_02-feature-flight-row">
+        <span class="_02-feature-flight-bullet" id="_02-feature-flight-bullet">/</span>
+        <span class="_02-feature-flight-text" id="_02-feature-flight-text">Autonomous Flight Paths</span>
+      </div>
+      <div class="_02-feature-flight-rule" id="_02-feature-flight-rule"></div>
+    </div>
+  </div>
+
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+
+    // Scene 1 (0.0–0.4s): ink-black ground static; kicker settles in top-left, awaiting the card.
+    tl.fromTo(
+      "#_02-feature-flight-kicker",
+      { opacity: 0, x: -8 },
+      { opacity: 1, x: 0, duration: 0.35, ease: "power2.out" },
+      0.05
+    );
+
+    // Scene 2 (0.4–1.6s): the card springs into its slot — marker spring-pop on the "/" bullet,
+    // then a pill mask-wipe (clip-path) reveals the headline left→right.
+    tl.fromTo(
+      "#_02-feature-flight-bullet",
+      { scale: 0, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" },
+      0.4
+    );
+
+    tl.fromTo(
+      "#_02-feature-flight-text",
+      { clipPath: "inset(0 100% 0 0)", opacity: 1 },
+      { clipPath: "inset(0 0% 0 0)", duration: 0.75, ease: "power2.out" },
+      0.55
+    );
+
+    // Bridge into Scene 3: the fire-orange stub rule draws in under the card as the build's last piece.
+    tl.fromTo(
+      "#_02-feature-flight-rule",
+      { scaleX: 0, opacity: 0 },
+      { scaleX: 1, opacity: 1, duration: 0.35, ease: "power2.out" },
+      1.45
+    );
+
+    // Scene 3 (1.6–3.0s): held read with a barely-perceptible parallax float on the whole card,
+    // returning exactly to rest by the cut (static, no residual motion at handoff).
+    tl.fromTo(
+      "#_02-feature-flight-card",
+      { y: 0 },
+      { y: -3, duration: 0.7, ease: "sine.inOut", yoyo: true, repeat: 1 },
+      1.6
+    );
+
+    window.__timelines["02-feature-flight"] = tl;
+  </script>
+</template>
